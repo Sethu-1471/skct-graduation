@@ -387,7 +387,7 @@
     <script>
         const isTokenAvail = sessionStorage.getItem('agreed');
         if (!isTokenAvail) {
-            window.location.href = '/'; // Replace '/redirected-page' with the desired URL
+            window.location.href = '/skct'; // Replace '/redirected-page' with the desired URL
         }
         // Add an event listener for the beforeunload event
         window.addEventListener('beforeunload', function (event) {
@@ -531,12 +531,12 @@
 
         registeragain.addEventListener('click', () => {
             sessionStorage.clear();
-            window.location.href = '/'; // Replace '/redirected-page' with the desired URL
+            window.location.href = '/skct'; // Replace '/redirected-page' with the desired URL
         })
 
         backbtn.addEventListener('click', () => {
             sessionStorage.clear();
-            window.location.href = '/'; // Replace '/redirected-page' with the desired URL
+            window.location.href = '/skct'; // Replace '/redirected-page' with the desired URL
         })
     </script>
 </body>

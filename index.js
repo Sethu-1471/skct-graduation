@@ -8,15 +8,15 @@ app.use('/static', express.static(__dirname + '/static'));
 app.use(express.json());
 app.set('view engine', 'ejs');
 
-app.get('/', function(req, res) {
+app.get('/skct', function(req, res) {
     res.render('index');
   });
 
-  app.get('/register', function(req, res) {
+  app.get('/skct/register', function(req, res) {
     res.render('register');
   });
 
-  app.get("/api", (req, res) => {
+  app.get("/skct/api", (req, res) => {
     db.query('SELECT * from users LIMIT 1', (err, rows) => {
         if (err) throw err;
         console.log('The data from users table are: \n', rows);
@@ -24,7 +24,7 @@ app.get('/', function(req, res) {
     });
 });
 
-app.post("/api/register", (req, res) => {
+app.post("/skct/api/register", (req, res) => {
   try {
     const {name, regno, batch, branch, phone_number, email, current_status, details_curr_status,will_participate, acc_count} = req.body;
     console.log({name, regno, batch, branch, phone_number, email, current_status, details_curr_status,will_participate, acc_count});
