@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Register-SKCT 34th Graduation Day</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            outline: none;
+            font-family: "Poppins", sans-serif !important;
+        }
+
+        body {
+            font-size: 14px;
+            background-color: #f9f9f9;
+        }
+
+        body::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background: rgba(88, 86, 86, 0.4);
+            border-radius: 10px;
+        }
+
+        body::-webkit-scrollbar-thumb:hover {
+            background: rgba(68, 66, 66, 0.5);
+        }
+
+        a {
+            color: #0366d6;
+        }
+
+        section {
+            max-width: 90vw;
+            height: auto;
+            margin: 5px auto;
+        }
+
+        section .logo img {
+            display: block;
+            width: 90%;
+            /* height: 48px; */
+            /* margin: 0 auto 25px; */
+        }
+
+        section .title p {
+            margin-bottom: 15px;
+            font-size: 24px;
+            text-align: center;
+            color: #333;
+        }
+
+        section .form {
+            margin-bottom: 15px;
+            background-color: #fff;
+            border: 1px solid #d8dee2;
+            border-radius: 5px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        @media screen and (min-width: 768px) {
+            section .logo img {
+                display: block;
+                width: 50%;
+                /* height: 48px; */
+                margin: 0 auto 25px;
+            }
+
+            section {
+                max-width: 70vw;
+            }
+
+            section .form {
+                flex-direction: row !important;
+                flex-wrap: wrap;
+            }
+
+            section .form .inputfield {
+                flex: 0 0 48% !important;
+            }
+        }
+
+        section .form .inputfield {
+            flex: 1;
+            width: 100%;
+        }
+
+        section .form .inputfield label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 7px;
+            color: #24292e;
+        }
+
+        section .form .inputfield .input {
+            width: 100%;
+            background: #fff;
+            border: 1px solid #d1d5da;
+            -webkit-box-shadow: inset 0 1px 2px rgba(27, 31, 35, 0.075);
+            box-shadow: inset 0 1px 2px rgba(27, 31, 35, 0.075);
+            border-radius: 3px;
+            color: #24292e;
+            font-size: 16px;
+            line-height: 20px;
+            min-height: 34px;
+            padding: 6px 8px;
+        }
+
+        section .form .inputfield a.forgot {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 12px;
+            color: #0366d6;
+        }
+
+        section .form .inputfield .input:focus {
+            border-color: #2188ff;
+            -webkit-box-shadow: inset 0 1px 2px rgba(27, 31, 35, 0.075),
+                0 0 0 2.5px rgba(3, 102, 214, 0.3);
+            box-shadow: inset 0 1px 2px rgba(27, 31, 35, 0.075),
+                0 0 0 2.5px rgba(3, 102, 214, 0.3);
+        }
+
+        section .submit_btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            gap: 10px;
+        }
+
+        section .signin {
+            /* margin-top: 20px; */
+            background-color: #2372BF;
+            /* border: 1px solid rgba(27, 31, 35, 0.2); */
+            border: none;
+            border-radius: 4px;
+            /* width: 130px; */
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 9px 12px;
+            border-radius: 2px;
+        }
+
+        section .signin:hover {
+            background-color: #2372BF;
+        }
+
+        section .backbtn {
+            /* margin-top: 20px; */
+            background-color: #bf3d23;
+            /* border: 1px solid rgba(27, 31, 35, 0.2); */
+            border: none;
+            border-radius: 4px;
+            /* width: 130px; */
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 9px 12px;
+            border-radius: 2px;
+        }
+
+        section .backbtn:hover {
+            background-color: #bf3d23;
+        }
+
+        section .createacc {
+            border: 1px solid #d8dee2;
+            border-radius: 5px;
+            padding: 15px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        section .createacc a:hover {
+            text-decoration: underline;
+        }
+
+        section .footer {
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        section .footer ul li {
+            display: inline-block;
+        }
+
+        section .footer ul li a {
+            font-size: 12px;
+            margin-right: 15px;
+        }
+
+        section .footer ul li a:hover,
+        section .footer ul li:last-child a:hover {
+            color: #0366d6;
+            text-decoration: underline;
+        }
+
+        section .footer ul li:last-child a {
+            color: #586069;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 500ms;
+            /* visibility: hidden;
+            opacity: 0; */
+            display: none;
+        }
+
+        .overlay:target {
+            /* visibility: visible;
+            opacity: 1; */
+            display: block;
+        }
+
+        .popup {
+            margin: 70px 10px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            /* width: 30%; */
+            position: relative;
+            transition: all 2s ease-in-out;
+            text-align: center;
+        }
+
+        .popup .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            transition: all 200ms;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .popup .content {
+            max-height: 30%;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="logo">
+            <center>
+                <img src="/static/logo.png" alt="GitHub" />
+            </center>
+        </div>
+        <div class="title">
+            <p>Registration Form - 34Th Graduation Day</p>
+        </div>
+        <div class="form">
+            <div class="inputfield">
+                <label>Batch</label>
+                <select id="batch" name="batch" class="input">
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2021">2022</option>
+                </select>
+            </div>
+            <div class="inputfield">
+                <label>Branch</label>
+                <select id="branch" name="branch" class="input">
+                    <option value="CIVIL">CIVIL ENGINEERING</option>
+                    <option value="CSE">COMPUTER SCIENCE AND ENGINEERING</option>
+                    <option value="ECE">ELECTRONICS AND COMMUNICATION ENGINEERING</option>
+                    <option value="EEE">ELECTRICAL AND ELECTRONICS ENGINEERING</option>
+                    <option value="ICE">INSTRUMENTATION AND CONTROL ENGINEERING</option>
+                    <option value="IT">INFORMATION TECHNOLOGY</option>
+                    <option value="MECH">MECHANICAL ENGINEERING</option>
+                    <option value="MBA">MBA - MASTER OF BUSINESS ADMINISTRATION</option>
+                    <option value="MCA">MCA - MASTER OF COMPUTER APPLICATIONS</option>
+                    <option value="M.E AE">M.E - APPLIED ELECTRONICS</option>
+                    <option value="M.E CSE">M.E - COMPUTER SCIENCE AND ENGINEERING</option>
+                    <option value="M.E ED">M.E - ENGINEERING DESIGN</option>
+                    <option value="M.E PSE">M.E - POWER SYSTEM ENGINEERING</option>
+                    <option value="M.E SE">M.E - STRUCTURAL ENGINEEING</option>
+                    <option value="B.Sc CT">B.Sc - COMPUTER TECHNOLOGY</option>
+                    <option value="B.Sc IT">B.Sc - INFORMATION TECHNOLOGY</option>
+                    <option value="M.Sc CT">M.Sc - COMPUTER TECHNOLOGY</option>
+                    <option value="M.Sc SE">M.Sc - SOFTWARE ENGINEERING</option>
+                </select>
+            </div>
+            <div class="inputfield">
+                <label>Register Number (Eg. 18TUCS101)</label>
+                <input type="text" class="input" placeholder="Reg No" id="regno" />
+            </div>
+            <div class="inputfield">
+                <label>Full Name</label>
+                <input type="text" class="input" placeholder="Full Name" id="name" />
+            </div>
+            <div class="inputfield">
+                <label>Mobile Number (Prefer Whatsapp)</label>
+                <input type="text" class="input" id="phone_number" placeholder="Mobile Number" />
+            </div>
+            <div class="inputfield">
+                <label>Email (Personal)</label>
+                <input type="email" class="input" placeholder="Personal Email" id="email" />
+            </div>
+            <div class="inputfield">
+                <label>Current Status</label>
+                <input type="text" class="input" placeholder="Current Status" id="current_status" />
+                <p>Eg:- Employment, Entrepreneur, Higher Studies, Others</p>
+            </div>
+            <div class="inputfield">
+                <label>Details of your status</label>
+                <textarea type="text" class="input" placeholder="Details of your Status"
+                    id="details_curr_status"></textarea>
+                <p>(Employment : Software Engineer / TCS / Chennai)
+                    (Higher Studies : University Name and Location)
+                    (Entrepreneur : Company details and Location)
+                    (Others:Please specify)</p>
+            </div>
+            <div class="inputfield">
+                <label>Are You Willing to Participate in the Graduation Day?</label>
+                <select id="will_participate" name="will_participate" class="input">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <p>(Physical Mode)</p>
+            </div>
+            <div class="inputfield">
+                <label>How many members are accompanying with you?</label>
+                <input type="number" class="input" placeholder="Count" id="acc_count" />
+            </div>
+            <div class="submit_btn">
+                <p id="error_part" style="color: #f00000;"></p>
+            </div>
+            <div class="submit_btn">
+                <button class="backbtn" id="backbtn">Back</button>
+                <button class="signin" id="register">Register</button>
+            </div>
+
+        </div>
+
+        <!-- <div class="createacc">
+            <p>New to GitHub? <a href="#">Create an account.</a></p>
+        </div> -->
+
+        <div id="popup1" class="overlay">
+            <div class="popup">
+                <h2 id="popup_header">Loading...</h2>
+                <div class="content" id="popup_content">Loading...</div>
+                <div class="submit_btn" style="margin-top: 15px; display: none;" id="register_again">
+                    <button class="signin" id="registeragain">Register Again</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <ul>
+                <li><a href="#">skct.edu.in</a></li>
+            </ul>
+        </div>
+    </section>
+    <script>
+        const isTokenAvail = sessionStorage.getItem('agreed');
+        if (!isTokenAvail) {
+            window.location.href = '/'; // Replace '/redirected-page' with the desired URL
+        }
+        // Add an event listener for the beforeunload event
+        window.addEventListener('beforeunload', function (event) {
+            // Clear session storage before the page is unloaded
+            sessionStorage.clear();
+        });
+        const submitBtn = document.getElementById('register');
+        const backbtn = document.getElementById('backbtn');
+        const popup_header = document.getElementById('popup_header');
+        const popup_content = document.getElementById('popup_content');
+
+
+        const openPopup = async () => {
+            console.log(getAllValues());
+            const { name, regno, batch, branch, phone_number, email, current_status, details_curr_status, will_participate, acc_count } = getAllValues();
+            const error_part = document.getElementById('error_part');
+            const phoneNumberPattern = /^(\+\d{1,2}\s?)?(\(\d{3}\)|\d{3})[-.\s]?\d{3}[-.\s]?\d{4}$/;
+
+            if (
+                regno == ''
+            ) {
+                error_part.innerHTML = 'Register Number is Mandatory!'
+                return;
+            }
+            if (regno.length < 3) {
+                error_part.innerHTML = 'Register Number is Invalid!'
+                return;
+            }
+            if (name == '') {
+                error_part.innerHTML = 'Name is Mandatory!'
+                return;
+            }
+            if (
+                batch == ''
+            ) {
+                error_part.innerHTML = 'Batch is Mandatory!'
+                return;
+            }
+            if (
+                branch == ''
+            ) {
+                error_part.innerHTML = 'Branch is Mandatory!'
+                return;
+            }
+            if (
+                phone_number == ''
+            ) {
+                error_part.innerHTML = 'Phone Number is Mandatory!'
+                return;
+            }
+            if (!phoneNumberPattern.test(phone_number)) {
+                error_part.innerHTML = 'Phone Number is Invalid!'
+                return;
+            }
+            if (
+                email == ''
+            ) {
+                error_part.innerHTML = 'Email is Mandatory!'
+                return;
+            }
+            if (
+                current_status == ''
+            ) {
+                error_part.innerHTML = 'Current Status is Mandatory!'
+                return;
+            }
+            if (
+                details_curr_status == '' || details_curr_status == ' '
+            ) {
+                error_part.innerHTML = 'Current Status Details is Mandatory!'
+                return;
+            }
+            if (
+                will_participate == ''
+            ) {
+                error_part.innerHTML = 'Participantion Interest is Mandatory!'
+                return;
+            }
+            if (
+                acc_count == ''
+            ) {
+                error_part.innerHTML = 'Accompanying Count is Mandatory!'
+                return;
+            }
+
+
+
+            error_part.innerHTML = '';
+            const popUp = document.getElementById('popup1');
+            const register_again = document.getElementById('register_again')
+            popUp.style.display = 'block';
+            popup_header.innerHTML = 'Registering...';
+            popup_content.innerHTML = 'Please Wait... We are allocating your seats!'
+
+            fetch('/api/register', {
+                method: 'POST', // Specify the request method
+                headers: {
+                    'Content-Type': 'application/json' // Specify the content type as JSON
+                },
+                body: JSON.stringify({ name, regno, batch, branch, phone_number, email, current_status, details_curr_status, will_participate, acc_count }) // Convert data to JSON format
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json(); // Parse the JSON data from the response
+                })
+                .then(data => {
+                    popup_header.innerHTML = 'Registered!';
+                    popup_content.innerHTML = 'We are very happy to see you and your parents/guests on the memorable and enjoyable day to celebrate GRADUATION CEREMONY.Thank You!';
+                    register_again.style.display = 'block';
+                    console.log(data); // Handle the parsed data from the server response
+                })
+                .catch(error => {
+                    popup_header.innerHTML = 'Something Went Wrong!';
+                    popup_header.style.color = 'red';
+                    popup_content.innerHTML = 'Please Try again Later!'
+                    console.error('There has been a problem with your fetch operation:', error);
+                });
+        }
+
+        const getAllValues = () => {
+            const name = document.getElementById('name').value.trim();
+            const regno = document.getElementById('regno').value.trim();
+            const batch = document.getElementById('batch').value.trim();
+            const branch = document.getElementById('branch').value.trim();
+            const phone_number = document.getElementById('phone_number').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const current_status = document.getElementById('current_status').value.trim();
+            const details_curr_status = document.getElementById('details_curr_status').value.trim();
+            const will_participate = document.getElementById('will_participate').value.trim();
+            const acc_count = document.getElementById('acc_count').value.trim()
+
+            return { name, regno, batch, branch, phone_number, email, current_status, details_curr_status, will_participate, acc_count }
+        }
+        submitBtn.addEventListener('click', () => {
+            openPopup()
+        })
+
+        const registeragain = document.getElementById('registeragain');
+
+        registeragain.addEventListener('click', () => {
+            sessionStorage.clear();
+            window.location.href = '/'; // Replace '/redirected-page' with the desired URL
+        })
+
+        backbtn.addEventListener('click', () => {
+            sessionStorage.clear();
+            window.location.href = '/'; // Replace '/redirected-page' with the desired URL
+        })
+    </script>
+</body>
+
+</html>

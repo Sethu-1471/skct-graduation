@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>SKCT 34th Graduation Day</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+            outline: none;
+            font-family: "Poppins", sans-serif !important;
+        }
+
+        body {
+            font-size: 14px;
+            background-color: #f9f9f9;
+        }
+
+        body::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background: rgba(88, 86, 86, 0.4);
+            border-radius: 10px;
+        }
+
+        body::-webkit-scrollbar-thumb:hover {
+            background: rgba(68, 66, 66, 0.5);
+        }
+
+        a {
+            color: #1C29BA;
+        }
+
+        section {
+            max-width: 90vw;
+            height: auto;
+            margin: 5px auto;
+        }
+
+        section .logo img {
+            display: block;
+            width: 90%;
+            /* height: 48px; */
+            /* margin: 0 auto 25px; */
+        }
+
+        section .title p {
+            margin-bottom: 15px;
+            font-size: 24px;
+            text-align: center;
+            color: #333;
+        }
+
+        @media screen and (min-width: 768px) {
+            section .logo img {
+                display: block;
+                width: 50%;
+                /* height: 48px; */
+                margin: 0 auto 25px;
+            }
+
+            section {
+                max-width: 70vw;
+            }
+        }
+
+        section .submit_btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        section .signin {
+            /* margin-top: 20px; */
+            background-color: #2372BF;
+            /* border: 1px solid rgba(27, 31, 35, 0.2); */
+            border: none;
+            border-radius: 4px;
+            /* width: 130px; */
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 9px 12px;
+            border-radius: 2px;
+        }
+
+        section .signin:hover {
+            background-color: #2372BF;
+        }
+
+        section .createacc {
+            border: 1px solid #d8dee2;
+            border-radius: 5px;
+            padding: 15px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        section .createacc a:hover {
+            text-decoration: underline;
+        }
+
+        section .footer {
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        section .footer ul li {
+            display: inline-block;
+        }
+
+        section .footer ul li a {
+            font-size: 12px;
+            margin-right: 15px;
+        }
+
+        section .footer ul li a:hover,
+        section .footer ul li:last-child a:hover {
+            color: #1C29BA;
+            text-decoration: underline;
+        }
+
+        section .footer ul li:last-child a {
+            color: #586069;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 500ms;
+            /* visibility: hidden;
+            opacity: 0; */
+            display: none;
+        }
+
+        .overlay:target {
+            /* visibility: visible;
+            opacity: 1; */
+            display: block;
+        }
+
+        .popup {
+            margin: 70px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            width: 30%;
+            position: relative;
+            transition: all 2s ease-in-out;
+        }
+
+        .popup .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            transition: all 200ms;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .popup .content {
+            max-height: 30%;
+            overflow: auto;
+        }
+
+        .container {
+            background-color: #FFFFFF;
+            padding: 10px;
+
+            .heading {
+                font-size: 18px;
+                font-weight: 500;
+            }
+
+            .paragraph {
+                font-size: 16px;
+            }
+
+            .highlight {
+                color: #252525 !important;
+                font-size: 16px;
+                font-weight: 700;
+            }
+
+            .sm_highlight {
+                color: #252525 !important;
+                font-size: 14px;
+                font-weight: 700;
+            }
+        }
+
+        .content_header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+
+            .tags {
+                padding: 10px 20px;
+                /* border: 2px solid black; */
+                cursor: pointer;
+                box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 4px 8px 0 rgba(0, 0, 0, 0.19);
+            }
+
+            .tags:hover {
+                border-left: 3px solid #2372BF;
+                border-right: 3px solid #2372BF;
+                /* color: white; */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="logo">
+            <center>
+                <img src="/static/logo.png" alt="GitHub" />
+            </center>
+        </div>
+        <!-- <div class="title">
+            <p>Register for Graduation</p>
+        </div> -->
+        <div class="container" style="line-height: 25px;">
+            <div class="content_header">
+                <p class="tags" id="information">Information</p>
+                <p class="tags" id="invitation">Invitation</p>
+                <p class="tags" id="graduands">Graduands</p>
+                <p class="tags" id="ranklist">Rank List</p>
+            </div>
+            <p class="heading">34TH GRADUATION DAY </p>
+            <hr />
+            <div id="invitation_part">
+                <div class="submit_btn" style="margin: 10px 0px;">
+                    <button class="signin" id="">34th Graduation Day Invitation - November 19, 2023.</button>
+                </div>
+            </div>
+            <div id="graduands_part">
+                <div class="submit_btn" style="margin: 10px 0px;">
+                    <button class="signin" id="">List of Graduands</button>
+                </div>
+            </div>
+            <div id="ranklist_part">
+                <div class="submit_btn" style="margin: 10px 0px;">
+                    <button class="signin" id="">Rank List 2023</button>
+                </div>
+            </div>
+            <div id="information_part">
+
+                <p class="paragraph" style="margin-top: 15px;">
+                    Greetings! We are happy to inform you that the <span class="highlight">34th Graduation Day</span> of
+                    our
+                    College will be
+                    held on
+                    <span class="highlight">Sunday, November 19, 2023, at 10 a.m.</span> at Vankatram Hall, SKCT. You
+                    are
+                    cordially invited to
+                    attend the
+                    ceremony and receive your Degree Certificate.
+                    <!-- ///
+                You are requested to acknowledge by registering immediately using
+                the registration link provided below. Registration is required to attend the Graduation Ceremony. -->
+                </p>
+
+                <center>
+                    <p class="highlight">LAST DATE FOR ONLINE REGISTRATION : 14.11.2023 (05.00 P.M.)</p>
+                </center>
+
+                <p class="sm_highlight" style="margin: 5px 0px;">
+                    PLEASE NOTE THE FOLLOWING
+                </p>
+                <ul>
+                    <li>
+                        1. You must register in person at the Vankartam hall registration desk by 9:00 a.m. on that day.
+                        You
+                        will be given the event procedure as well as the Convocation robe. If you arrive late, you will
+                        be
+                        denied the opportunity to receive your degree certificate from the Chief Guest. However, you can
+                        collect
+                        your degree from the Tutors after the function.
+                    </li>
+                    <li>
+                        2. You are welcome to attend the event with your parents. Other guests or relatives are not
+                        permitted.
+                    </li>
+                    <li>
+                        3. On the day of Convocation, you are requested to remit a sum of Rs. 500 (Only by Cash) as
+                        refundable
+                        deposit to get the Convocation robe, which will be refunded while returning the convocation robe
+                        after
+                        the convocation.
+                    </li>
+                    <li>
+                        4. It is needless for us to remind you about the Dress Code of our College. Please come in
+                        formal
+                        dress
+                        in accordance with the College tradition, which you are already aware of.
+                    </li>
+                    <li>
+                        5. Use of mobile phones inside the campus is strictly prohibited. The same applies to your
+                        parents
+                        as
+                        well. Outside photographers are strictly not allowed.
+                    </li>
+                </ul>
+
+                <p class="sm_highlight" style="margin: 10px 0px;">We are very happy to see you and your parents/guests
+                    on
+                    the memorable and enjoyable
+                    day to celebrate
+                    GRADUATION CEREMONY</p>
+                <center>
+                    “Kindly confirm your participation by filling up this registration form.” Also inform your
+                    classmates to
+                    register.
+                </center>
+
+                <div class="submit_btn" style="margin: 10px 0px;">
+                    <button class="signin" id="redirectButton">Register</button>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="footer">
+            <ul>
+                <li><a href="#">skct.edu.in</a></li>
+            </ul>
+        </div>
+    </section>
+    <script>
+        const informationEle = document.getElementById('information');
+        const informationPartEle = document.getElementById('information_part');
+        const invitationEle = document.getElementById('invitation');
+        const graduandsEle = document.getElementById('graduands');
+        const ranklistEle = document.getElementById('ranklist');
+        const invitationPartEle = document.getElementById('invitation_part');
+        const graduandsPartEle = document.getElementById('graduands_part');
+        const ranklistPartEle = document.getElementById('ranklist_part');
+
+        informationEle.addEventListener('click', () => {
+            informationEle.style.backgroundColor = '#2372BF';
+            informationEle.style.color = 'white';
+            informationPartEle.style.display = 'block';
+            invitationPartEle.style.display = 'none';
+            graduandsPartEle.style.display = 'none';
+            ranklistPartEle.style.display = 'none';
+            invitationEle.style.backgroundColor = 'white';
+            invitationEle.style.color = 'black';
+            graduandsEle.style.backgroundColor = 'white';
+            graduandsEle.style.color = 'black';
+            ranklistEle.style.backgroundColor = 'white';
+            ranklistEle.style.color = 'black';
+        })
+        invitationEle.addEventListener('click', () => {
+            invitationEle.style.backgroundColor = '#2372BF';
+            invitationEle.style.color = 'white';
+            informationEle.style.backgroundColor = 'white';
+            informationEle.style.color = 'black';
+            informationPartEle.style.display = 'none';
+            invitationPartEle.style.display = 'block';
+            graduandsPartEle.style.display = 'none';
+            ranklistPartEle.style.display = 'none';
+            graduandsEle.style.backgroundColor = 'white';
+            graduandsEle.style.color = 'black';
+            ranklistEle.style.backgroundColor = 'white';
+            ranklistEle.style.color = 'black';
+        })
+        graduandsEle.addEventListener('click', () => {
+            graduandsEle.style.backgroundColor = '#2372BF';
+            graduandsEle.style.color = 'white';
+            informationEle.style.backgroundColor = 'white';
+            informationEle.style.color = 'black';
+            informationPartEle.style.display = 'none';
+            invitationPartEle.style.display = 'none';
+            graduandsPartEle.style.display = 'block';
+            ranklistPartEle.style.display = 'none';
+            invitationEle.style.backgroundColor = 'white';
+            invitationEle.style.color = 'black';
+            ranklistEle.style.backgroundColor = 'white';
+            ranklistEle.style.color = 'black';
+        })
+        ranklistEle.addEventListener('click', () => {
+            ranklistEle.style.backgroundColor = '#2372BF';
+            ranklistEle.style.color = 'white';
+            invitationEle.style.backgroundColor = 'white';
+            invitationEle.style.color = 'black';
+            graduandsEle.style.backgroundColor = 'white';
+            graduandsEle.style.color = 'black';
+            informationEle.style.backgroundColor = 'white';
+            informationEle.style.color = 'black';
+            informationPartEle.style.display = 'none';
+            invitationPartEle.style.display = 'none';
+            graduandsPartEle.style.display = 'none';
+            ranklistPartEle.style.display = 'block';
+        })
+        informationEle.style.backgroundColor = '#2372BF';
+        informationEle.style.color = 'white';
+        informationPartEle.style.display = 'block';
+        invitationPartEle.style.display = 'none';
+        graduandsPartEle.style.display = 'none';
+        ranklistPartEle.style.display = 'none';
+
+        // JavaScript function to handle button click and redirect
+        document.getElementById('redirectButton').addEventListener('click', function () {
+            sessionStorage.setItem('agreed', true);
+            // Redirect to the desired URL
+            window.location.href = '/register'; // Replace '/redirected-page' with the desired URL
+        });
+    </script>
+</body>
+
+</html>
