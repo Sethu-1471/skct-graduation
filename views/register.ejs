@@ -520,9 +520,9 @@
                         entry_id.innerHTML = data?.result?.tagId || '';
                         popup_content.innerHTML = 'We are very happy to see you and your parents/guests on the memorable and enjoyable day to celebrate GRADUATION CEREMONY.Thank You!';
                     } else {
-                        popup_header.innerHTML = 'Something Went Wrong!';
-                        popup_header.style.color = 'red';
-                        popup_content.innerHTML = 'Please Try again Later!' + data?.message || ''
+                        popup_header.innerHTML = data?.alreadyRegitered ? 'You are already registered!' : 'Something Went Wrong!';
+                        popup_header.style.color = 'orange';
+                        popup_content.innerHTML = data?.alreadyRegitered ? 'Please contact you class tutor for modification.' : 'Please Try again Later!' + data?.message || ''
                     }
                     register_again.style.display = 'block';
                 })

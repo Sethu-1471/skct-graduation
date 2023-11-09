@@ -137,7 +137,7 @@ app.post("/skct/api/register", async(req, res) => {
       }
     });
     if(checkAlredyRegistered){
-      throw {message: 'You already registered!' }
+      throw {message: 'You already registered!', alreadyRegitered: true }
     }
     const result = await client.registrations.create({
       data:{
@@ -164,7 +164,7 @@ app.post("/skct/api/register", async(req, res) => {
      res.send({status: true, message: 'Successfully Registered!', result: {tagId: result.uniqueId, id: result.id} })
   } catch (error) {
     console.log(error);
-    res.send({status: false, message: error?.message || 'Something Went Wrong!'})
+    res.send({status: false, alreadyRegitered: error?.alreadyRegitered || false, message: error?.message || 'Something Went Wrong!'})
   } 
 });
  
