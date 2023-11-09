@@ -83,7 +83,11 @@ app.get('/skct/graduation/list', async (req, res) => {
       branch: true,
     },
   });
-  const totalResult =  await client.registrations.findMany();
+  const totalResult =  await client.registrations.findMany({
+    where:{
+      deletedAt: null
+    }
+  });
   const willAttend = totalResult.filter(val => val.will_participate)
   res.render('view', {
     count: countResult,
@@ -97,7 +101,8 @@ app.get('/skct/graduation/list/:dept_name', async (req, res) => {
   const {dept_name} =  req.params;
   const result = await client.registrations.findMany({
     where:{
-      branch: dept_name
+      branch: dept_name,
+      deletedAt: null
     },
     orderBy:{
       createdAt:'asc'
