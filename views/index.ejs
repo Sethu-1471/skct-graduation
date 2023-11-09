@@ -251,8 +251,8 @@
             <div class="content_header">
                 <p class="tags" id="information">Information</p>
                 <p class="tags" id="invitation">Invitation</p>
-                <p class="tags" id="graduands">Graduands</p>
-                <p class="tags" id="ranklist">Rank List</p>
+                <!-- <p class="tags" id="graduands">Graduands</p>
+                <p class="tags" id="ranklist">Rank List</p> -->
             </div>
             <p class="heading">34TH GRADUATION DAY </p>
             <hr />
@@ -274,66 +274,67 @@
             <div id="information_part">
 
                 <p class="paragraph" style="margin-top: 15px; text-indent: 50px;">
-                    Greetings! We are happy to inform
-                    you that the <span class="highlight" style="color: #2372BF !important;">34th Graduation Day</span>
-                    of
-                    our
-                    College will be
-                    held on
-                    <span class="highlight" style="color: #2372BF !important;">Sunday, November 19, 2023, at 10
-                        a.m.</span> at Vankatram Hall, SKCT. You
-                    are
-                    cordially invited to
-                    attend the
-                    ceremony and receive your Degree Certificate.
+                    Warm wishes and Greetings from Sri Krishna College of Technology, Coimbatore. We are delighted to
+                    inform you that the <span class="highlight" style="color: #2372BF !important;">34th Graduation
+                        Day</span> is scheduled to be held
+                    on <span class="highlight" style="color: #2372BF !important;">Sunday, the 19th November 2023 at
+                        10.00 a.m.</span> at Vankatram Hall.
                     <!-- ///
                 You are requested to acknowledge by registering immediately using
                 the registration link provided below. Registration is required to attend the Graduation Ceremony. -->
                 </p>
 
                 <center>
-                    <p class="highlight" style="color: #F8A22E !important;">LAST DATE FOR ONLINE REGISTRATION :
-                        14.11.2023 (05.00
-                        P.M.)</p>
+                    <p class="highlight" style="color: #F8A22E !important;">LAST DATE FOR REGISTRATION :
+                        16.11.2023 </p>
                 </center>
 
                 <p class="sm_highlight" style="margin: 5px 0px;color: #2372BF !important;">
-                    Important Instructions
+                    The tentative schedule of the ceremony is as follows:
                 </p>
                 <ul>
                     <li>
-                        1. You must register in person at the Vankartam hall registration desk by 9:00 a.m. on that day.
-                        You
-                        will be given the event procedure as well as the Convocation robe. If you arrive late, you will
-                        be
-                        denied the opportunity to receive your degree certificate from the Chief Guest. However, you can
-                        collect
-                        your degree from the Tutors after the function.
+                        • Registration confirmation @ respective department counters : 08.30 a.m. to 09.30 a.m.
                     </li>
                     <li>
-                        2. You are welcome to attend the event with your parents. Other guests or relatives are not
-                        permitted.
+                        • Collection of Graduation Robes and Registration for photos : 08.30 a.m. to 09.30 a.m.
                     </li>
                     <li>
-                        3. On the day of Convocation, you are requested to remit a sum of Rs. 500 (Only by Cash) as
-                        refundable
-                        deposit to get the Convocation robe, which will be refunded while returning the convocation robe
-                        after
-                        the convocation.
-                    </li>
-                    <li>
-                        4. It is needless for us to remind you about the Dress Code of our College. Please come in
-                        formal
-                        dress
-                        in accordance with the College tradition, which you are already aware of.
-                    </li>
-                    <li>
-                        5. Use of mobile phones inside the campus is strictly prohibited. The same applies to your
-                        parents
-                        as
-                        well. Outside photographers are strictly not allowed.
+                        • Occupying allotted Seat in the Hall : 09.30 a.m.
                     </li>
                 </ul>
+
+                <p>
+                    The graduands are asked to pay Rs.600/- towards caution deposit for Graduation Robes (Rs.500/- will
+                    be refunded on return of Graduation Robes) and Rs.300/- for Graduation Photo of the Individual in
+                    the respective counters.
+                </p>
+
+                <p class="sm_highlight" style="margin: 5px 0px;color: #2372BF !important;">
+                    NOTE:
+                </p>
+                <ul>
+                    <li>
+                        1. All Graduands shall come only in formal attire.
+                    </li>
+                    <li>
+                        2. No one shall enter the Ceremony Hall after 9.30 a.m.
+                    </li>
+                    <li>
+                        3. All Graduands shall handover the Mobile Phones at the Registration Desk.
+                    </li>
+                    <li>
+                        4. Either father or mother / Guardian can accompany each Graduand.
+                    </li>
+                    <li>
+                        5. No spot registration.
+                    </li>
+                </ul>
+
+                <p>
+                    All the eligible graduands, attending the ceremony, are requested to be present and register at
+                    least an hour prior to the commencement of the proceedings.
+                </p>
 
                 <p class="sm_highlight" style="margin: 10px 0px;">We are very happy to see you and your parents/guests
                     on
@@ -367,8 +368,8 @@
         const informationEle = document.getElementById('information');
         const informationPartEle = document.getElementById('information_part');
         const invitationEle = document.getElementById('invitation');
-        const graduandsEle = document.getElementById('graduands');
-        const ranklistEle = document.getElementById('ranklist');
+        // const graduandsEle = document.getElementById('graduands');
+        // const ranklistEle = document.getElementById('ranklist');
         const invitationPartEle = document.getElementById('invitation_part');
         const graduandsPartEle = document.getElementById('graduands_part');
         const ranklistPartEle = document.getElementById('ranklist_part');
@@ -382,10 +383,10 @@
             ranklistPartEle.style.display = 'none';
             invitationEle.style.backgroundColor = 'white';
             invitationEle.style.color = 'black';
-            graduandsEle.style.backgroundColor = 'white';
-            graduandsEle.style.color = 'black';
-            ranklistEle.style.backgroundColor = 'white';
-            ranklistEle.style.color = 'black';
+            // graduandsEle.style.backgroundColor = 'white';
+            // graduandsEle.style.color = 'black';
+            // ranklistEle.style.backgroundColor = 'white';
+            // ranklistEle.style.color = 'black';
         })
         invitationEle.addEventListener('click', () => {
             invitationEle.style.backgroundColor = '#2372BF';
@@ -396,39 +397,39 @@
             invitationPartEle.style.display = 'block';
             graduandsPartEle.style.display = 'none';
             ranklistPartEle.style.display = 'none';
-            graduandsEle.style.backgroundColor = 'white';
-            graduandsEle.style.color = 'black';
-            ranklistEle.style.backgroundColor = 'white';
-            ranklistEle.style.color = 'black';
+            // graduandsEle.style.backgroundColor = 'white';
+            // graduandsEle.style.color = 'black';
+            // ranklistEle.style.backgroundColor = 'white';
+            // ranklistEle.style.color = 'black';
         })
-        graduandsEle.addEventListener('click', () => {
-            graduandsEle.style.backgroundColor = '#2372BF';
-            graduandsEle.style.color = 'white';
-            informationEle.style.backgroundColor = 'white';
-            informationEle.style.color = 'black';
-            informationPartEle.style.display = 'none';
-            invitationPartEle.style.display = 'none';
-            graduandsPartEle.style.display = 'block';
-            ranklistPartEle.style.display = 'none';
-            invitationEle.style.backgroundColor = 'white';
-            invitationEle.style.color = 'black';
-            ranklistEle.style.backgroundColor = 'white';
-            ranklistEle.style.color = 'black';
-        })
-        ranklistEle.addEventListener('click', () => {
-            ranklistEle.style.backgroundColor = '#2372BF';
-            ranklistEle.style.color = 'white';
-            invitationEle.style.backgroundColor = 'white';
-            invitationEle.style.color = 'black';
-            graduandsEle.style.backgroundColor = 'white';
-            graduandsEle.style.color = 'black';
-            informationEle.style.backgroundColor = 'white';
-            informationEle.style.color = 'black';
-            informationPartEle.style.display = 'none';
-            invitationPartEle.style.display = 'none';
-            graduandsPartEle.style.display = 'none';
-            ranklistPartEle.style.display = 'block';
-        })
+        // graduandsEle.addEventListener('click', () => {
+        //     // graduandsEle.style.backgroundColor = '#2372BF';
+        //     // graduandsEle.style.color = 'white';
+        //     informationEle.style.backgroundColor = 'white';
+        //     informationEle.style.color = 'black';
+        //     informationPartEle.style.display = 'none';
+        //     invitationPartEle.style.display = 'none';
+        //     graduandsPartEle.style.display = 'block';
+        //     ranklistPartEle.style.display = 'none';
+        //     invitationEle.style.backgroundColor = 'white';
+        //     invitationEle.style.color = 'black';
+        //     // ranklistEle.style.backgroundColor = 'white';
+        //     // ranklistEle.style.color = 'black';
+        // })
+        // ranklistEle.addEventListener('click', () => {
+        //     // ranklistEle.style.backgroundColor = '#2372BF';
+        //     // ranklistEle.style.color = 'white';
+        //     invitationEle.style.backgroundColor = 'white';
+        //     invitationEle.style.color = 'black';
+        //     // graduandsEle.style.backgroundColor = 'white';
+        //     // graduandsEle.style.color = 'black';
+        //     informationEle.style.backgroundColor = 'white';
+        //     informationEle.style.color = 'black';
+        //     informationPartEle.style.display = 'none';
+        //     invitationPartEle.style.display = 'none';
+        //     graduandsPartEle.style.display = 'none';
+        //     ranklistPartEle.style.display = 'block';
+        // })
         informationEle.style.backgroundColor = '#2372BF';
         informationEle.style.color = 'white';
         informationPartEle.style.display = 'block';
