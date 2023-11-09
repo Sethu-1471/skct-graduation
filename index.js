@@ -133,7 +133,10 @@ app.post("/skct/api/register", async(req, res) => {
     }
     const checkAlredyRegistered = await client.registrations.findFirst({
       where:{
-        regno: regno
+        regno: {
+          equals: regno.trim(),
+          mode: 'insensitive'
+        }
       }
     });
     if(checkAlredyRegistered){
@@ -142,7 +145,7 @@ app.post("/skct/api/register", async(req, res) => {
     const result = await client.registrations.create({
       data:{
         name: name || '',
-        regno: regno || '',
+        regno: regno.trim() || '',
         uniqueId: generateRandomId().toLowerCase(),
         acc_count: +acc_count,
         batch: batch || '',
