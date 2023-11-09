@@ -508,7 +508,7 @@
                 error_part.innerHTML = 'Accompanying Count is Mandatory!'
                 return;
             }
-            if (!emp_mailid.includes('@')) {
+            if (emp_mailid && !emp_mailid.includes('@')) {
                 error_part.innerHTML = 'Emplyment mail id is invalid!'
                 return;
             }
