@@ -82,6 +82,9 @@ app.get('/skct/graduation/list', async (req, res) => {
     _count: {
       branch: true,
     },
+    where:{
+      deletedAt: null
+    }
   });
   const totalResult =  await client.registrations.findMany({
     where:{
