@@ -47,7 +47,19 @@
             color: #0366d6;
         }
 
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: rgb(52, 1, 0);
+            background: radial-gradient(circle, rgba(52, 1, 0, 1) 0%, rgba(119, 2, 2, 1) 35%, rgba(71, 13, 12, 1) 100%);
+            z-index: 0;
+        }
+
         section {
+            position: relative;
             max-width: 90vw;
             height: auto;
             margin: 5px auto;
@@ -278,6 +290,7 @@
 </head>
 
 <body>
+    <div id="background"></div>
     <section>
         <div class="logo">
             <center>
@@ -285,11 +298,11 @@
             </center>
         </div>
         <div class="title">
-            <p>Registration Form - 34th Graduation Day</p>
+            <p style="color: white;">Registration Form - 34th Graduation Day</p>
         </div>
         <div class="form">
             <div class="inputfield">
-                <label>Batch</label>
+                <label>Batch*</label>
                 <select id="batch" name="batch" class="input">
                     <option value="2017">2017</option>
                     <option value="2020">2020</option>
@@ -298,7 +311,7 @@
                 </select>
             </div>
             <div class="inputfield">
-                <label>Branch</label>
+                <label>Branch*</label>
                 <select id="branch" name="branch" class="input">
                     <option value="B.E. Civil Engineering">B.E. Civil Engineering</option>
                     <option value="B.E. Computer Science and Engineering">B.E. Computer Science and Engineering</option>
@@ -319,29 +332,34 @@
                 </select>
             </div>
             <div class="inputfield">
-                <label>Register Number (Eg. 18TUCS101)</label>
+                <label>Register Number* (Eg. 18TUCS101)</label>
                 <!-- // Unique Reg -->
                 <input type="text" class="input" placeholder="Reg No" id="regno" />
             </div>
             <div class="inputfield">
-                <label>Full Name</label>
+                <label>Full Name*</label>
                 <input type="text" class="input" placeholder="Full Name" id="name" />
             </div>
             <div class="inputfield">
-                <label>Mobile Number (Prefer Whatsapp)</label>
+                <label>Mobile Number* (Prefer Whatsapp)</label>
                 <input type="text" class="input" id="phone_number" placeholder="Mobile Number" />
             </div>
             <div class="inputfield">
-                <label>Email (Personal)</label>
+                <label>Email (Personal)*</label>
                 <input type="email" class="input" placeholder="Personal Email" id="email" />
             </div>
             <div class="inputfield">
-                <label>Current Status</label>
+                <label>Current Status*</label>
                 <input type="text" maxlength="20" class="input" placeholder="Current Status" id="current_status" />
                 <p>Eg:- Employment, Entrepreneur, Higher Studies, Others</p>
             </div>
             <div class="inputfield">
-                <label>Details of your status</label>
+                <label>Employment Mail Id</label>
+                <input type="text" maxlength="50" class="input" placeholder="Company/Employment Mail id"
+                    id="emp_mailid" />
+            </div>
+            <div class="inputfield">
+                <label>Details of your status*</label>
                 <textarea type="text" class="input" placeholder="Details of your Status" id="details_curr_status"
                     style="resize: none;" maxlength="100"></textarea>
                 <p>(Employment : Software Engineer / TCS / Chennai)
@@ -350,7 +368,7 @@
                     (Others:Please specify)</p>
             </div>
             <div class="inputfield">
-                <label>Are You Willing to Participate in the Graduation Day?</label>
+                <label>Are You Willing to Participate in the Graduation Day?*</label>
                 <select id="will_participate" name="will_participate" class="input">
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
@@ -358,7 +376,7 @@
                 <p>(Physical Mode)</p>
             </div>
             <div class="inputfield">
-                <label>How many members are accompanying with you?</label>
+                <label>How many members are accompanying with you?*</label>
                 <select id="acc_count" name="acc_count" class="input">
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -420,7 +438,7 @@
         const entry_id = document.getElementById('entry_id')
 
         const openPopup = async () => {
-            const { name, regno, batch, branch, phone_number, email, current_status, details_curr_status, will_participate, acc_count } = getAllValues();
+            const { name, regno, batch, branch, emp_mailid, phone_number, email, current_status, details_curr_status, will_participate, acc_count } = getAllValues();
             const error_part = document.getElementById('error_part');
             const phoneNumberPattern = /^(\+\d{1,2}\s?)?(\(\d{3}\)|\d{3})[-.\s]?\d{3}[-.\s]?\d{4}$/;
 
@@ -490,6 +508,14 @@
                 error_part.innerHTML = 'Accompanying Count is Mandatory!'
                 return;
             }
+            if (!emp_mailid.includes('@')) {
+                error_part.innerHTML = 'Emplyment mail id is invalid!'
+                return;
+            }
+            if (!email.includes('@')) {
+                error_part.innerHTML = 'Email is invalid!'
+                return;
+            }
             error_part.innerHTML = '';
             const popUp = document.getElementById('popup1');
             const register_again = document.getElementById('register_again')
@@ -504,7 +530,7 @@
                 headers: {
                     'Content-Type': 'application/json' // Specify the content type as JSON
                 },
-                body: JSON.stringify({ name, regno, batch, branch, phone_number, email, current_status, details_curr_status, will_participate, acc_count }) // Convert data to JSON format
+                body: JSON.stringify({ name, regno, batch, branch, phone_number, email, current_status, details_curr_status, will_participate, acc_count, emp_mailid }) // Convert data to JSON format
             })
                 .then(response => {
                     if (!response.ok) {
@@ -545,8 +571,10 @@
             const details_curr_status = document.getElementById('details_curr_status').value.trim();
             const will_participate = document.getElementById('will_participate').value.trim();
             const acc_count = document.getElementById('acc_count').value.trim()
+            const emp_mailid = document.getElementById('emp_mailid').value.trim()
 
-            return { name, regno, batch, branch, phone_number, email, current_status, details_curr_status, will_participate, acc_count }
+
+            return { name, regno, emp_mailid, batch, branch, phone_number, email, current_status, details_curr_status, will_participate, acc_count }
         }
         submitBtn.addEventListener('click', () => {
             openPopup()

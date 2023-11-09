@@ -60,6 +60,12 @@ const sendMail = async(email, id, wp, mc) =>{
                     <li>
                        No spot registration.
                     </li>
+                    <li>
+                        Kids are strictly not allowed inside the hall.
+                    </li>
+                    <li>
+                        All the arrangements are made for graduates and 1 accompanying person.
+                    </li>
                 </ol>
                 <p>
                 The graduands are asked to pay Rs.600/- towards caution deposit for Graduation Robes (Rs.500/- will
@@ -152,8 +158,8 @@ app.get('/skct/graduation/list/:dept_name', async (req, res) => {
 
 app.post("/skct/api/register", async(req, res) => {
   try {
-    const {name, regno, batch, branch, phone_number, email, current_status, details_curr_status,will_participate, acc_count} = req.body;
-    console.log({name, regno, batch, branch, phone_number, email, current_status, details_curr_status,will_participate, acc_count});
+    const {name, regno, batch, branch, phone_number, email, current_status, details_curr_status,will_participate, acc_count,emp_mailid} = req.body;
+    console.log({name, regno, batch, branch, phone_number, email, current_status, details_curr_status,will_participate, acc_count,emp_mailid});
     if(isNaN(+acc_count)){
       throw {message: 'Accompanying Count is Invalid!'}
     }
@@ -181,6 +187,7 @@ app.post("/skct/api/register", async(req, res) => {
         will_participate: will_participate.toLowerCase() === 'yes',
         phone_number: phone_number,
         email: email || '',
+        emp_mailid: emp_mailid || ''
       }
     })
     if(!result) throw {message:'Problem in Saving Data!'}

@@ -25,6 +25,18 @@
             background-color: #f9f9f9;
         }
 
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: rgb(52, 1, 0);
+            background: radial-gradient(circle, rgba(52, 1, 0, 1) 0%, rgba(119, 2, 2, 1) 35%, rgba(71, 13, 12, 1) 100%);
+            z-index: 0;
+        }
+
+
         body::-webkit-scrollbar {
             width: 10px;
             height: 10px;
@@ -48,6 +60,7 @@
         }
 
         section {
+            position: relative;
             max-width: 90vw;
             height: auto;
             margin: 5px auto;
@@ -238,6 +251,7 @@
 </head>
 
 <body>
+    <div id="background"></div>
     <section>
         <div class="logo">
             <center>
@@ -245,7 +259,7 @@
             </center>
         </div>
         <div class="title">
-            <p>Welcome to 34th Graduation Day!</p>
+            <p style="color: white;">Welcome to 34th Graduation Day!</p>
         </div>
         <div class="container" style="line-height: 25px;">
             <div class="content_header">
@@ -328,6 +342,12 @@
                     </li>
                     <li>
                         5. No spot registration.
+                    </li>
+                    <li>
+                        6. Kids are strictly not allowed inside the hall.
+                    </li>
+                    <li>
+                        7. All the arrangements are made for graduates and 1 accompanying person.
                     </li>
                 </ul>
 

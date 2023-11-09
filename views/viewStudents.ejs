@@ -53,6 +53,7 @@
                 <th>Email</th>
                 <th>Current Status</th>
                 <th>Details of Current Status</th>
+                <th>Emp Mail ID</th>
             </tr>
             <% result.forEach(function(value, index) { %>
                 <tr>
@@ -96,6 +97,9 @@
                     </td>
                     <td>
                         <%= value.details_curr_status %>
+                    </td>
+                    <td>
+                        <%= value.emp_mailid %>
                     </td>
                 </tr>
                 <% }) %>
