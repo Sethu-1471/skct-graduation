@@ -1,8 +1,14 @@
 const express = require("express");
-const app = express();
 const { PrismaClient } = require('@prisma/client')
 const nodemailer = require('nodemailer');
+const dotenv = require('dotenv');
+
+
+const app = express();
 const client = new PrismaClient()
+dotenv.config();
+
+console.log(process.env.MAIL_PASSWORD);
 
 const generateRandomId = () => {
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -19,14 +25,14 @@ const sendMail = async(email, id, wp, mc) =>{
     service: 'gmail',
     auth: {
       user: 'graduation.2022@skct.edu.in',
-      pass: 'graduation_2022'
+      pass: process.env.MAIL_PASSWORD
     }
   });
   
   var mailOptions = {
     from: 'graduation.2022@skct.edu.in',
     to: email,
-    subject: 'Welcome to SKCT 34th Graduation Day! - Registration Confirmed',
+    subject: 'Welcome to SKCT 34th Graduation Day! - Registration Confirmation',
     html: '<!DOCTYPE html>'+
         '<html><head><title>Welcome to SKCT 34th Graduation Day!</title>'+
         '</head><body><div>'+
