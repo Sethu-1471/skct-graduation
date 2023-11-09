@@ -22,7 +22,7 @@ model Registrations {
   current_status      String?   @db.VarChar(255)
   details_curr_status String?   @db.Text
   will_participate    Boolean?  @default(false)
-  acc_count           Int?
+  acc_count           Int?      @default(0)
   uniqueId            String    @db.VarChar(255)
   createdAt           DateTime  @default(now()) @db.Timestamp(6)
   deletedAt           DateTime? @db.Timestamp(6)

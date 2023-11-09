@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKCT Graduation List</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            /* background-color: #dddddd; */
+        }
+    </style>
+</head>
+
+<body>
+    <p class="heading">SKCT 34TH GRADUATION DAY </p>
+    <hr />
+    <p> <a href="/skct/graduation/list">
+            home/
+        </a>
+        <strong style="color: #F8A22E;">
+            <%= dept_name %>
+        </strong>
+    </p>
+    <p>You are viewing <%= dept_name %> department registered students.</p>
+    <p>Total Registered Students: <%= result.length %>
+    </p>
+    <p>No of Students will attend: <%= willAttend %>
+    </p>
+    <p>No of Students not attend: <%= notAttend %>
+    </p>
+
+    <table>
+        <tr>
+            <th>S.no</th>
+            <th>Batch</th>
+            <th>Name</th>
+            <th>Reg No</th>
+            <th>Entry Id</th>
+            <th>Will Participate</th>
+            <th>Acc.Count</th>
+            <th>Ph No</th>
+            <th>Email</th>
+            <th>Current Status</th>
+            <th>Details of Current Status</th>
+        </tr>
+        <% result.forEach(function(value, index) { %>
+            <tr>
+                <td>
+                    <%= index+1 %>
+                </td>
+                <td>
+                    <%= value.batch %>
+                </td>
+                <td>
+                    <%= value.name %>
+                </td>
+                <td>
+                    <%= value.regno %>
+                </td>
+                <td>
+                    <%= value.uniqueId %>
+                </td>
+                <td>
+                    <% if(value.will_participate ){ %>
+                        <span
+                            style="background-color: #2372BF; padding: 5px; border-radius: 10px; color: #dddddd;">Yes</span>
+                        <% } else{ %>
+                            <span style="background-color: red; padding: 5px; border-radius: 10px; color: #dddddd;">No
+                                </sp>
+                                <% } %>
+                </td>
+                <td>
+                    <%= value.acc_count %>
+                </td>
+
+                <td>
+                    <%= value.phone_number %>
+                </td>
+                <td>
+                    <%= value.email %>
+                </td>
+                <td>
+                    <%= value.current_status %>
+                </td>
+                <td>
+                    <%= value.details_curr_status %>
+                </td>
+            </tr>
+            <% }) %>
+
+    </table>
+</body>
+
+</html>

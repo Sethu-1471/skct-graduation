@@ -268,6 +268,12 @@
             max-height: 30%;
             overflow: auto;
         }
+
+        .sm_highlight {
+            color: #252525 !important;
+            font-size: 14px;
+            font-weight: 700;
+        }
     </style>
 </head>
 
@@ -308,6 +314,7 @@
                     <option value="M.E Applied Electronics">M.E Applied Electronics</option>
                     <option value="M.E Power Systems Engineering">M.E Power Systems Engineering</option>
                     <option value="M.E Engineering Design">M.E Engineering Design</option>
+                    <option value="Master of Business Administration">Master of Business Administration</option>
                 </select>
             </div>
             <div class="inputfield">
@@ -328,13 +335,13 @@
             </div>
             <div class="inputfield">
                 <label>Current Status</label>
-                <input type="text" class="input" placeholder="Current Status" id="current_status" />
+                <input type="text" maxlength="20" class="input" placeholder="Current Status" id="current_status" />
                 <p>Eg:- Employment, Entrepreneur, Higher Studies, Others</p>
             </div>
             <div class="inputfield">
                 <label>Details of your status</label>
                 <textarea type="text" class="input" placeholder="Details of your Status" id="details_curr_status"
-                    style="resize: none;"></textarea>
+                    style="resize: none;" maxlength="100"></textarea>
                 <p>(Employment : Software Engineer / TCS / Chennai)
                     (Higher Studies : University Name and Location)
                     (Entrepreneur : Company details and Location)
@@ -369,10 +376,19 @@
         <!-- <div class="createacc">
             <p>New to GitHub? <a href="#">Create an account.</a></p>
         </div> -->
-
+        <!-- style="display: block !important;" -->
         <div id="popup1" class="overlay">
             <div class="popup">
                 <h2 id="popup_header">Loading...</h2>
+                <div class="sm_highlight" style="color: #F8A22E !important; display: none; margin: 5px 0px;"
+                    id="entry_id_container">Your
+                    Entry Pass Id:
+                    <span id="entry_id"></span>
+                </div>
+                <p id="entry_id_note_container" style="display: none;">Please make sure to show this entry pass id while
+                    attending Graduation for seamless experience. Registeration confirmation is sent to given mail id.
+                    If you are not recieved in inbox please check spam.
+                </p>
                 <div class="content" id="popup_content">Loading...</div>
                 <div class="submit_btn" style="margin-top: 15px; display: none;" id="register_again">
                     <button class="signin" id="registeragain">Register Again</button>
@@ -381,7 +397,7 @@
         </div>
         <div class="footer">
             <ul>
-                <li><a href="#">skct.edu.in</a></li>
+                <li><a href="https://skct.edu.in">skct.edu.in</a></li>
             </ul>
         </div>
     </section>
@@ -399,10 +415,9 @@
         const backbtn = document.getElementById('backbtn');
         const popup_header = document.getElementById('popup_header');
         const popup_content = document.getElementById('popup_content');
-
+        const entry_id = document.getElementById('entry_id')
 
         const openPopup = async () => {
-            console.log(getAllValues());
             const { name, regno, batch, branch, phone_number, email, current_status, details_curr_status, will_participate, acc_count } = getAllValues();
             const error_part = document.getElementById('error_part');
             const phoneNumberPattern = /^(\+\d{1,2}\s?)?(\(\d{3}\)|\d{3})[-.\s]?\d{3}[-.\s]?\d{4}$/;
@@ -473,15 +488,14 @@
                 error_part.innerHTML = 'Accompanying Count is Mandatory!'
                 return;
             }
-
-
-
             error_part.innerHTML = '';
             const popUp = document.getElementById('popup1');
             const register_again = document.getElementById('register_again')
+            const entry_id_container = document.getElementById('entry_id_container');
+            const entry_id_note_container = document.getElementById('entry_id_note_container')
             popUp.style.display = 'block';
-            popup_header.innerHTML = 'Registering...';
-            popup_content.innerHTML = 'Please Wait... We are allocating your seats!'
+            popup_header.innerHTML = 'Registration in Progeress!';
+            popup_content.innerHTML = 'Please Wait... !'
 
             fetch('/skct/api/register', {
                 method: 'POST', // Specify the request method
@@ -497,15 +511,23 @@
                     return response.json(); // Parse the JSON data from the response
                 })
                 .then(data => {
-                    popup_header.innerHTML = 'Registered!';
-                    popup_content.innerHTML = 'We are very happy to see you and your parents/guests on the memorable and enjoyable day to celebrate GRADUATION CEREMONY.Thank You!';
+                    if (data.status) {
+                        popup_header.innerHTML = 'Registered!';
+                        entry_id_container.style.display = 'block';
+                        entry_id_note_container.style.display = 'block';
+                        entry_id.innerHTML = data?.result?.tagId || '';
+                        popup_content.innerHTML = 'We are very happy to see you and your parents/guests on the memorable and enjoyable day to celebrate GRADUATION CEREMONY.Thank You!';
+                    } else {
+                        popup_header.innerHTML = 'Something Went Wrong!';
+                        popup_header.style.color = 'red';
+                        popup_content.innerHTML = 'Please Try again Later!' + data?.message || ''
+                    }
                     register_again.style.display = 'block';
-                    console.log(data); // Handle the parsed data from the server response
                 })
                 .catch(error => {
                     popup_header.innerHTML = 'Something Went Wrong!';
                     popup_header.style.color = 'red';
-                    popup_content.innerHTML = 'Please Try again Later!'
+                    popup_content.innerHTML = 'Please Try again Later!' + error?.message || ''
                     console.error('There has been a problem with your fetch operation:', error);
                 });
         }

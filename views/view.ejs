@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKCT Graduation List</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="heading">SKCT 34TH GRADUATION DAY </p>
+    <hr />
+    <p> <a href="/skct/graduation/list">
+            home
+        </a>
+    </p>
+    <p>Total No of Registered Students from all department: <%= total %>
+    </p>
+    <p>No of Students will attend from all department: <%= willAttend %>
+    </p>
+    <p>No of Students not attend from all department: <%= notAttend %>
+    </p>
+    </p>
+    <table>
+        <tr>
+            <th>Department</th>
+            <th>No of Student Registered</th>
+            <th>Action</th>
+        </tr>
+        <% count.forEach(function(value) { %>
+            <tr>
+                <td>
+                    <%= value.branch %>
+                </td>
+                <td>
+                    <%= value._count.branch %>
+                </td>
+                <td>
+                    <a href="/skct/graduation/list/<%= value.branch %>">
+                        View Students
+                    </a>
+                </td>
+            </tr>
+            <% }) %>
+
+    </table>
+</body>
+
+</html>
