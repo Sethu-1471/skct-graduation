@@ -300,7 +300,7 @@
             <div class="inputfield">
                 <label>Branch</label>
                 <select id="branch" name="branch" class="input">
-                    <option value="B.E. Civil Engineering">B.E Civil Engineering</option>
+                    <option value="B.E. Civil Engineering">B.E. Civil Engineering</option>
                     <option value="B.E. Computer Science and Engineering">B.E. Computer Science and Engineering</option>
                     <option value="B.E. Electronics and Communication Engineering">B.E. Electronics and Communication
                         Engineering</option>
@@ -520,9 +520,9 @@
                         entry_id.innerHTML = data?.result?.tagId || '';
                         popup_content.innerHTML = 'We are very happy to see you and your parents/guests on the memorable and enjoyable day to celebrate GRADUATION CEREMONY.Thank You!';
                     } else {
-                        popup_header.innerHTML = data?.alreadyRegitered ? 'You are already registered!' : 'Something Went Wrong!';
+                        popup_header.innerHTML = data?.alreadyRegitered ? 'You have already registered!' : 'Something Went Wrong!';
                         popup_header.style.color = 'orange';
-                        popup_content.innerHTML = data?.alreadyRegitered ? 'Please contact you class tutor for modification.' : 'Please Try again Later!' + data?.message || ''
+                        popup_content.innerHTML = data?.alreadyRegitered ? 'Please contact your class tutor for modification.' : 'Please Try again Later!' + data?.message || ''
                     }
                     register_again.style.display = 'block';
                 })

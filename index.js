@@ -38,7 +38,7 @@ const sendMail = async(email, id, wp, mc) =>{
         '</head><body><div>'+
         '<p>Greetings! We are happy to inform you that the 34th Graduation Day of our College will be held on Sunday, November 19, 2023, at 10 a.m. at Vankatram Hall, SKCT. You are cordially invited to attend the ceremony and receive your Degree Certificate.</p>'+
         `<p><strong>${wp? 'Your Registration is Confirmed' : 'Sorry to hear that, you are not going to attend Graduation Ceremony'}!.</strong></p>`+
-        `<p>${wp? 'Here is your entry pass ID: ' + id: 'If it done by mistake, Please contact your class tutor.'}</p>`+
+        `<p>${wp? 'Here is your entry pass ID: ' + id: 'If it done by mistake, Please contact your class tutor for modification.'}</p>`+
         `<p>${wp ? 'Total members are accompanying with you: ' + mc : '' }</p>` +
         `<p>${wp ? "We are very happy to see you and your parents/guests on the memorable and enjoyable day to celebrate GRADUATION CEREMONY." : ''}</p>`+
         '<p>Thank You!</p>'+
