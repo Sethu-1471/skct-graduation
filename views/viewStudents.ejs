@@ -38,67 +38,71 @@
     </p>
     <p>No of Students not attend: <%= notAttend %>
     </p>
+    <div style="overflow-x: scroll; width: 100%;">
 
-    <table>
-        <tr>
-            <th>S.no</th>
-            <th>Batch</th>
-            <th>Name</th>
-            <th>Reg No</th>
-            <th>Entry Id</th>
-            <th>Will Participate</th>
-            <th>Acc.Count</th>
-            <th>Ph No</th>
-            <th>Email</th>
-            <th>Current Status</th>
-            <th>Details of Current Status</th>
-        </tr>
-        <% result.forEach(function(value, index) { %>
+        <table>
             <tr>
-                <td>
-                    <%= index+1 %>
-                </td>
-                <td>
-                    <%= value.batch %>
-                </td>
-                <td>
-                    <%= value.name %>
-                </td>
-                <td>
-                    <%= value.regno %>
-                </td>
-                <td>
-                    <%= value.uniqueId %>
-                </td>
-                <td>
-                    <% if(value.will_participate ){ %>
-                        <span
-                            style="background-color: #2372BF; padding: 5px; border-radius: 10px; color: #dddddd;">Yes</span>
-                        <% } else{ %>
-                            <span style="background-color: red; padding: 5px; border-radius: 10px; color: #dddddd;">No
-                                </sp>
-                                <% } %>
-                </td>
-                <td>
-                    <%= value.acc_count %>
-                </td>
-
-                <td>
-                    <%= value.phone_number %>
-                </td>
-                <td>
-                    <%= value.email %>
-                </td>
-                <td>
-                    <%= value.current_status %>
-                </td>
-                <td>
-                    <%= value.details_curr_status %>
-                </td>
+                <th>S.no</th>
+                <th>Batch</th>
+                <th>Name</th>
+                <th>Reg No</th>
+                <th>Entry Id</th>
+                <th>Will Participate</th>
+                <th>Acc.Count</th>
+                <th>Ph No</th>
+                <th>Email</th>
+                <th>Current Status</th>
+                <th>Details of Current Status</th>
             </tr>
-            <% }) %>
+            <% result.forEach(function(value, index) { %>
+                <tr>
+                    <td>
+                        <%= index+1 %>
+                    </td>
+                    <td>
+                        <%= value.batch %>
+                    </td>
+                    <td>
+                        <%= value.name %>
+                    </td>
+                    <td>
+                        <%= value.regno %>
+                    </td>
+                    <td>
+                        <%= value.uniqueId %>
+                    </td>
+                    <td>
+                        <% if(value.will_participate ){ %>
+                            <span
+                                style="background-color: #2372BF; padding: 5px; border-radius: 10px; color: #dddddd;">Yes</span>
+                            <% } else{ %>
+                                <span
+                                    style="background-color: red; padding: 5px; border-radius: 10px; color: #dddddd;">No
+                                    </sp>
+                                    <% } %>
+                    </td>
+                    <td>
+                        <%= value.acc_count %>
+                    </td>
 
-    </table>
+                    <td>
+                        <%= value.phone_number %>
+                    </td>
+                    <td>
+                        <%= value.email %>
+                    </td>
+                    <td>
+                        <%= value.current_status %>
+                    </td>
+                    <td>
+                        <%= value.details_curr_status %>
+                    </td>
+                </tr>
+                <% }) %>
+
+        </table>
+    </div>
+
 </body>
 
 </html>
