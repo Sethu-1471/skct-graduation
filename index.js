@@ -36,9 +36,9 @@ const sendMail = async(email, id, wp, mc) =>{
     html: '<!DOCTYPE html>'+
         '<html><head><title>Welcome to SKCT 34th Graduation Day!</title>'+
         '</head><body><div>'+
-        `<p>Dear Graduands,</p>`+
-        '<p>Warm wishes and Greetings from Sri Krishna College of Technology, Coimbatore. We are delighted to inform you that the 34th Graduation Day is scheduled to be held on Sunday, the 19th November 2023 at 10.00 am at Vankatram Hall. </p>'+
-        `<p><strong>${wp? 'Your Registration is Confirmed' : 'Sorry to hear that, you are not going to attend Graduation Ceremony'}!.</strong></p>`+
+        `<p>Dear Graduate,</p>`+
+        '<p>Warm wishes and Greetings from Sri Krishna College of Technology, Coimbatore! You are cordially invited to attend the Graduation ceremony  which is to be held on 19th November 2023.</p>'+
+        `<p><strong>${wp? 'Your registration for the 34th Graduation Day is confirmed.' : 'Sorry to hear that, you are not going to attend Graduation Ceremony'}!.</strong></p>`+
         `<p>${wp? 'Here is your entry pass ID: ' + id: 'If it done by mistake, Please contact your class tutor for modification.'}</p>`+
         `<p>${wp ? 'Total members are accompanying with you: ' + mc : '' }</p>` +
         `<p style="margin: 5px 0px;color: #2372BF !important;font-weight:700">
