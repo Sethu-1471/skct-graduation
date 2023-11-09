@@ -13,5 +13,12 @@ module.exports = {
 				PORT: 80,
 			},
 		},
+		{
+			name: 'prisma-studio',
+			script: 'npx prisma studio',
+			autorestart: true,
+			watch: false,
+			max_memory_restart: '1G',
+		},
 	],
 };
