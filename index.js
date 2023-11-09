@@ -168,7 +168,8 @@ app.post("/skct/api/register", async(req, res) => {
         regno: {
           equals: regno.trim(),
           mode: 'insensitive'
-        }
+        },
+        deletedAt: null
       }
     });
     if(checkAlredyRegistered){
