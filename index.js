@@ -36,10 +36,36 @@ const sendMail = async(email, id, wp, mc) =>{
     html: '<!DOCTYPE html>'+
         '<html><head><title>Welcome to SKCT 34th Graduation Day!</title>'+
         '</head><body><div>'+
-        '<p>Greetings! We are happy to inform you that the 34th Graduation Day of our College will be held on Sunday, November 19, 2023, at 10 a.m. at Vankatram Hall, SKCT. You are cordially invited to attend the ceremony and receive your Degree Certificate.</p>'+
+        `<p>Dear Graduands,</p>`+
+        '<p>Warm wishes and Greetings from Sri Krishna College of Technology, Coimbatore. We are delighted to inform you that the 34th Graduation Day is scheduled to be held on Sunday, the 19th November 2023 at 10.00 am at Vankatram Hall. </p>'+
         `<p><strong>${wp? 'Your Registration is Confirmed' : 'Sorry to hear that, you are not going to attend Graduation Ceremony'}!.</strong></p>`+
         `<p>${wp? 'Here is your entry pass ID: ' + id: 'If it done by mistake, Please contact your class tutor for modification.'}</p>`+
         `<p>${wp ? 'Total members are accompanying with you: ' + mc : '' }</p>` +
+        `<p style="margin: 5px 0px;color: #2372BF !important;font-weight:700">
+                    NOTE:
+                </p>
+                <ol>
+                    <li>
+                      All Graduands shall come only in formal attire.
+                    </li>
+                    <li>
+                      No one shall enter the Ceremony Hall after 9.30 a.m.
+                    </li>
+                    <li>
+                      All Graduands shall handover the Mobile Phones at the Registration Desk.
+                    </li>
+                    <li>
+                      Either father or mother / Guardian can accompany each Graduand.
+                    </li>
+                    <li>
+                       No spot registration.
+                    </li>
+                </ol>
+                <p>
+                The graduands are asked to pay Rs.600/- towards caution deposit for Graduation Robes (Rs.500/- will
+                be refunded on return of Graduation Robes) and Rs.300/- for Graduation Photo of the Individual in
+                the respective counters.
+            </p>`+
         `<p>${wp ? "We are very happy to see you and your parents/guests on the memorable and enjoyable day to celebrate GRADUATION CEREMONY." : ''}</p>`+
         '<p>Thank You!</p>'+
         '</div></body></html>'
@@ -64,7 +90,7 @@ app.set('view engine', 'ejs');
 
 app.get('/skct/sendmail', async(req,res) =>{
   try {
-    const result = await sendMail('sethu1471@gmail.com','678234', true, 4) 
+    const result = await sendMail('sethu1471@gmail.com','678234', false, 4) 
     res.send({status: true, result})
   } catch (error) {
     res.send({status: false, message: error})
