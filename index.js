@@ -1,8 +1,18 @@
 const express = require("express");
 const app = express();
-const {db} = require('./db');
-const path = require('path')
-console.log(__dirname + '/static');
+const { PrismaClient } = require('@prisma/client')
+
+const client = new PrismaClient()
+
+const generateRandomId = () => {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let id = '';
+  for (let i = 0; i < 6; i++) {
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    id += characters[randomIndex];
+  }
+  return id;
+}
 
 app.use('/static', express.static(__dirname + '/static'));
 app.use(express.json());
@@ -24,18 +34,51 @@ app.get('/skct', function(req, res) {
     });
 });
 
-app.post("/skct/api/register", (req, res) => {
+app.post("/skct/api/register", async(req, res) => {
   try {
     const {name, regno, batch, branch, phone_number, email, current_status, details_curr_status,will_participate, acc_count} = req.body;
     console.log({name, regno, batch, branch, phone_number, email, current_status, details_curr_status,will_participate, acc_count});
-    res.send({status: true, message: 'Successfully Registered!', result: {tagId: '1uisd'} })
+    if(isNaN(+acc_count)){
+      throw {message:'ACC_Count is not a number'}
+    }
+    const result = await client.registrations.create({
+      data:{
+        name: name || '',
+        regno: regno || '',
+        uniqueId: generateRandomId(),
+        acc_count: +acc_count || '',
+        batch: batch || '',
+        branch: branch || '',
+        current_status:current_status || '',
+        details_curr_status: details_curr_status || '',
+        will_participate: will_participate.toLowerCase() === 'yes',
+        phone_number: phone_number,
+        email: email || '',
+
+      }
+    })
+     res.send({status: true, message: 'Successfully Registered!', result: {tagId: result.uniqueId, id: result.id} })
   } catch (error) {
+    console.log(error);
     res.send({status: false, message: error?.message || 'Something Went Wrong!'})
   } 
 });
  
-app.listen(3000, (err) => {
+
+const connectPrisma = () => {
+  // const client = new PrismaClient();
+  return client.$connect();
+}
+
+connectPrisma().then(() => {
+  console.log('[DATABASE] Connected!');
+  app.listen(3000, async(err) => {
     if(err) console.log('Err in Starting', err);
-    // db.query('SELECT 1')
-    console.log('Server is running at port 3000');
+    const result = await client.$queryRaw`SELECT 1`;
+    console.log('Server is running at port 3000', result);
+});
+}).catch((error) => {
+  console.log(
+    `[prisma] Error connecting to database with error -> ${error}`
+  );
 });

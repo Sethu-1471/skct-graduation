@@ -1,11 +1,11 @@
 const mysql = require('mysql2')
 
 exports.db = mysql.createPool({
-    host: 'localhost',
+    host: '13.233.122.219',
     port: 3306,
-    user: 'root',
-    password: '1q2w3e4r5t6y7u8i9o0P',
-    database: 'revise-ethindia',
+    user: 'service',
+    password: '1q2w3e4r..S',
+    database: 'skct_graduation',
     multipleStatements: true
 })
   .promise()

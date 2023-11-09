@@ -279,7 +279,7 @@
             </center>
         </div>
         <div class="title">
-            <p>Registration Form - 34Th Graduation Day</p>
+            <p>Registration Form - 34th Graduation Day</p>
         </div>
         <div class="form">
             <div class="inputfield">
@@ -293,24 +293,21 @@
             <div class="inputfield">
                 <label>Branch</label>
                 <select id="branch" name="branch" class="input">
-                    <option value="CIVIL">CIVIL ENGINEERING</option>
-                    <option value="CSE">COMPUTER SCIENCE AND ENGINEERING</option>
-                    <option value="ECE">ELECTRONICS AND COMMUNICATION ENGINEERING</option>
-                    <option value="EEE">ELECTRICAL AND ELECTRONICS ENGINEERING</option>
-                    <option value="ICE">INSTRUMENTATION AND CONTROL ENGINEERING</option>
-                    <option value="IT">INFORMATION TECHNOLOGY</option>
-                    <option value="MECH">MECHANICAL ENGINEERING</option>
-                    <option value="MBA">MBA - MASTER OF BUSINESS ADMINISTRATION</option>
-                    <option value="MCA">MCA - MASTER OF COMPUTER APPLICATIONS</option>
-                    <option value="M.E AE">M.E - APPLIED ELECTRONICS</option>
-                    <option value="M.E CSE">M.E - COMPUTER SCIENCE AND ENGINEERING</option>
-                    <option value="M.E ED">M.E - ENGINEERING DESIGN</option>
-                    <option value="M.E PSE">M.E - POWER SYSTEM ENGINEERING</option>
-                    <option value="M.E SE">M.E - STRUCTURAL ENGINEEING</option>
-                    <option value="B.Sc CT">B.Sc - COMPUTER TECHNOLOGY</option>
-                    <option value="B.Sc IT">B.Sc - INFORMATION TECHNOLOGY</option>
-                    <option value="M.Sc CT">M.Sc - COMPUTER TECHNOLOGY</option>
-                    <option value="M.Sc SE">M.Sc - SOFTWARE ENGINEERING</option>
+                    <option value="B.E Civil Engineering">B.E Civil Engineering</option>
+                    <option value="B.E Computer Science and Engineering">B.E Computer Science and Engineering</option>
+                    <option value="B.E Electronics and Communication Engineering">B.E Electronics and Communication
+                        Engineering</option>
+                    <option value="B.E Electrical and Electronics Engineering">B.E Electrical and Electronics
+                        Engineering</option>
+                    <option value="B.E Instrumentation and Control Engineering">B.E Instrumentation and Control
+                        Engineering</option>
+                    <option value="B.Tech Information Technology">B.Tech Information Technology</option>
+                    <option value="B.E Mechanical Engineering">B.E Mechanical Engineering</option>
+                    <option value="M. E Structural Engineering">M. E Structural Engineering</option>
+                    <option value="M. E Computer Science and Engineering">M. E Computer Science and Engineering</option>
+                    <option value="M.E Applied Electronics">M.E Applied Electronics</option>
+                    <option value="M.E Power Systems Engineering">M.E Power Systems Engineering</option>
+                    <option value="M.E Engineering Design">M.E Engineering Design</option>
                 </select>
             </div>
             <div class="inputfield">
@@ -336,8 +333,8 @@
             </div>
             <div class="inputfield">
                 <label>Details of your status</label>
-                <textarea type="text" class="input" placeholder="Details of your Status"
-                    id="details_curr_status"></textarea>
+                <textarea type="text" class="input" placeholder="Details of your Status" id="details_curr_status"
+                    style="resize: none;"></textarea>
                 <p>(Employment : Software Engineer / TCS / Chennai)
                     (Higher Studies : University Name and Location)
                     (Entrepreneur : Company details and Location)
@@ -353,7 +350,11 @@
             </div>
             <div class="inputfield">
                 <label>How many members are accompanying with you?</label>
-                <input type="number" class="input" placeholder="Count" id="acc_count" />
+                <select id="acc_count" name="acc_count" class="input">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
             </div>
             <div class="submit_btn">
                 <p id="error_part" style="color: #f00000;"></p>
@@ -482,7 +483,7 @@
             popup_header.innerHTML = 'Registering...';
             popup_content.innerHTML = 'Please Wait... We are allocating your seats!'
 
-            fetch('/api/register', {
+            fetch('/skct/api/register', {
                 method: 'POST', // Specify the request method
                 headers: {
                     'Content-Type': 'application/json' // Specify the content type as JSON
