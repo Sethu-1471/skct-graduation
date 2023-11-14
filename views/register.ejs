@@ -377,12 +377,8 @@
                 <p>(Physical Mode)</p>
             </div>
             <div class="inputfield">
-                <label>How many members are accompanying with you?*</label>
-                <select id="acc_count" name="acc_count" class="input">
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <!-- <option value="2">2</option> -->
-                </select>
+                <label style="color: #bf3d23;">Only graduates are allowed inside the hall. Youtube live streaming is
+                    available for others to watch.</label>
             </div>
             <div class="submit_btn">
                 <p id="error_part" style="color: #f00000;"></p>
@@ -571,7 +567,7 @@
             const current_status = document.getElementById('current_status').value.trim();
             const details_curr_status = document.getElementById('details_curr_status').value.trim();
             const will_participate = document.getElementById('will_participate').value.trim();
-            const acc_count = document.getElementById('acc_count').value.trim()
+            const acc_count = '0';
             const emp_mailid = document.getElementById('emp_mailid').value.trim()
 
 

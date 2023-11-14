@@ -40,7 +40,7 @@ const sendMail = async(email, id, wp, mc) =>{
         '<p>Warm wishes and Greetings from Sri Krishna College of Technology, Coimbatore! You are cordially invited to attend the Graduation ceremony  which is to be held on 19th November 2023.</p>'+
         `<p><strong>${wp? 'Your registration for the 34th Graduation Day is confirmed.' : 'Sorry to hear that, you are not going to attend Graduation Ceremony'}!.</strong></p>`+
         `<p>${wp? 'Here is your entry pass ID: ' + id: 'If it done by mistake, Please contact your class tutor for modification.'}</p>`+
-        `<p>${wp ? 'Total members are accompanying with you: ' + mc : '' }</p>` +
+        `<p style="color: #bf3d23;">Only graduates are allowed inside the hall. Youtube live streaming is available for others to watch.</p>` +
         `<p style="margin: 5px 0px;color: #2372BF !important;font-weight:700">
                     NOTE:
                 </p>
@@ -96,7 +96,7 @@ app.set('view engine', 'ejs');
 
 app.get('/skct/sendmail', async(req,res) =>{
   try {
-    const result = await sendMail('sethu1471@gmail.com','678234', false, 4) 
+    const result = await sendMail('sethu1471@gmail.com','sethu1471', true, 4) 
     res.send({status: true, result})
   } catch (error) {
     res.send({status: false, message: error})
