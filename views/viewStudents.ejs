@@ -18,6 +18,21 @@
             text-align: left;
             padding: 8px;
         }
+
+        .signin {
+            /* margin-top: 20px; */
+            background-color: #2372BF;
+            /* border: 1px solid rgba(27, 31, 35, 0.2); */
+            border: none;
+            border-radius: 4px;
+            /* width: 130px; */
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 9px 12px;
+            border-radius: 2px;
+            margin: 10px 0px;
+        }
     </style>
 </head>
 
@@ -38,6 +53,11 @@
     </p>
     <p>No of Students - Not willing to attend : <%= notAttend %>
     </p>
+    <a href="/skct/graduation/verify">
+        <button class="signin">
+            Verify Registration
+        </button>
+    </a>
     <div style="overflow-x: scroll; width: 100%;">
 
         <table>

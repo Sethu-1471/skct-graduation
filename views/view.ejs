@@ -22,6 +22,21 @@
         tr:nth-child(even) {
             background-color: #dddddd;
         }
+
+        .signin {
+            /* margin-top: 20px; */
+            background-color: #2372BF;
+            /* border: 1px solid rgba(27, 31, 35, 0.2); */
+            border: none;
+            border-radius: 4px;
+            /* width: 130px; */
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 9px 12px;
+            border-radius: 2px;
+            margin: 10px 0px;
+        }
     </style>
 </head>
 
@@ -38,6 +53,11 @@
     </p>
     <p>No of Students - Not willing to attend from all department: <%= notAttend %>
     </p>
+    <a href="/skct/graduation/verify">
+        <button class="signin">
+            Verify Registration
+        </button>
+    </a>
     <table>
         <tr>
             <th>Department</th>
@@ -59,7 +79,6 @@
                 </td>
             </tr>
             <% }) %>
-
     </table>
 </body>
 

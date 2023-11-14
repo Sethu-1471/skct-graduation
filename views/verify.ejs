@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify</title>
+    <style>
+        .input {
+            width: 200px;
+            background: #fff;
+            border: 1px solid #d1d5da;
+            -webkit-box-shadow: inset 0 1px 2px rgba(27, 31, 35, 0.075);
+            box-shadow: inset 0 1px 2px rgba(27, 31, 35, 0.075);
+            border-radius: 3px;
+            color: #24292e;
+            font-size: 16px;
+            line-height: 20px;
+            min-height: 18px;
+            padding: 6px 8px;
+        }
+
+        .signin {
+            /* margin-top: 20px; */
+            background-color: #2372BF;
+            /* border: 1px solid rgba(27, 31, 35, 0.2); */
+            border: none;
+            border-radius: 4px;
+            /* width: 130px; */
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 9px 12px;
+            border-radius: 2px;
+            width: 150px;
+        }
+
+        .viewData {
+            background-color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="heading">SKCT 34TH GRADUATION DAY </p>
+    <hr />
+    <p> <a href="/skct/graduation/list">
+            home/
+        </a>
+        <strong style="color: #F8A22E;">
+            Verify
+        </strong>
+    </p>
+    <div
+        style="padding: 10px; background-color: aliceblue; display: flex; flex-direction: column; flex-wrap: wrap; gap: 5px">
+        <h3>Verify Registration!</h3>
+        <input placeholder="Enter Pass ID/Reg No" class="input" id="passId" />
+        <button class="signin" id="verify">
+            Get Details
+        </button>
+        <p id="error"></p>
+        <div id="viewContainer" class="viewContainer">
+
+        </div>
+    </div>
+
+    <script>
+        const getData = () => {
+            const passId = document.getElementById('passId').value.trim();
+            const err = document.getElementById('error');
+            if (passId) {
+                err.innerHTML = 'Searching for Pass ID ' + passId;
+                const vc = document.getElementById('viewContainer');
+                vc.innerHTML = '';
+                const xhttp = new XMLHttpRequest();
+                xhttp.onprogress = () => {
+                    err.style.color = 'orange';
+                    err.innerHTML = 'Searching started for Pass ID ' + passId;
+                }
+                xhttp.onload = (res) => {
+                    const { status, result, message } = JSON.parse(xhttp.responseText);
+                    console.log({ res: xhttp.responseText, status, result, message });
+                    if (status) {
+                        err.innerHTML = '';
+                        for (var i = 0; i < result.length; i++) {
+                            const htmlContent = `<div id="viewData" class="viewData">
+                                <p>Reg No: ${result[i].regno}</p>
+            <p>Name: ${result[i].name}</p>
+            <p>Branch: ${result[i].branch}</p>
+            <p>Batch: ${result[i].batch}</p>
+            <p>Pass ID: ${result[i].uniqueId}</p>
+            <p>Registered At: ${new Date(result[i].createdAt).toLocaleString()}</p>
+            <p>Phone No: ${result[i].phone_number}</p>
+            <p>Email ID: ${result[i].email}</p>
+            <p>Current Status: ${result[i].current_status}</p>
+            <p>Details: ${result[i].details_curr_status || '-k'}</p>
+            <p>Emp Mail ID: ${result[i].emp_mailid || '-'}</p>
+            <p style="color: ${result[i].will_participate ? 'green' : 'red'}">Will Participate: ${result[i].will_participate ? 'YES' : 'NO'}</p>
+            <hr />
+        </div>`
+                            vc.innerHTML += htmlContent;
+
+                        }
+                    } else {
+                        err.innerHTML = message || 'No Message!';
+                    }
+                }
+                xhttp.open('GET', '/skct/get/' + passId);
+                xhttp.send();
+                err.innerHTML = '';
+            } else {
+                err.innerHTML = 'Enter Pass ID!';
+                err.style.color = 'red';
+            }
+        }
+
+        document.getElementById('verify').addEventListener('click', () => {
+            getData();
+        })
+    </script>
+</body>
+
+</html>

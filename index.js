@@ -97,6 +97,42 @@ app.get('/skct/sendmail', async(req,res) =>{
 app.get('/skct', function(req, res) {
   res.render('index');
 });
+app.get('/skct/graduation/verify', function(req, res) {
+  res.render('verify');
+});
+app.get('/skct/get/:id', async (req, res) => {
+  try {
+  const {id} = req.params;
+  if(!id){
+    throw {message: 'Please enter Entry ID or Reg No.'}
+  }
+  const data = await client.registrations.findMany({
+    where:{
+      OR: [
+        {
+          regno: {
+            equals: id,
+            mode: 'insensitive'
+          }
+        },{
+        uniqueId: {
+            equals: id,
+            mode: 'insensitive'
+          }
+        }
+      ],
+      deletedAt: null
+    }
+  })
+  if(!data || data.length <= 0){
+    throw {message: 'Not Registered!'}
+  }
+  res.send({status: true, result:data});
+} catch (error) {
+  res.send({status: false, result: null, message: error.message || 'Something Went Wrong'});
+
+}
+});
 
 app.get('/skct/graduation/list', async (req, res) => {
   const countResult = await client.registrations.groupBy({
