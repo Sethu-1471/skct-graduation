@@ -313,6 +313,7 @@
             <div class="inputfield">
                 <label>Branch*</label>
                 <select id="branch" name="branch" class="input">
+                    <option value="" style="display: none;" selected>Select</option>
                     <option value="B.E. Civil Engineering">B.E. Civil Engineering</option>
                     <option value="B.E. Computer Science and Engineering">B.E. Computer Science and Engineering</option>
                     <option value="B.E. Electronics and Communication Engineering">B.E. Electronics and Communication
@@ -438,7 +439,12 @@
             const { name, regno, batch, branch, emp_mailid, phone_number, email, current_status, details_curr_status, will_participate, acc_count } = getAllValues();
             const error_part = document.getElementById('error_part');
             const phoneNumberPattern = /^(\+\d{1,2}\s?)?(\(\d{3}\)|\d{3})[-.\s]?\d{3}[-.\s]?\d{4}$/;
-
+            if (
+                branch == ''
+            ) {
+                error_part.innerHTML = 'Branch is Mandatory!'
+                return;
+            }
             if (
                 regno == ''
             ) {
@@ -457,12 +463,6 @@
                 batch == ''
             ) {
                 error_part.innerHTML = 'Batch is Mandatory!'
-                return;
-            }
-            if (
-                branch == ''
-            ) {
-                error_part.innerHTML = 'Branch is Mandatory!'
                 return;
             }
             if (
