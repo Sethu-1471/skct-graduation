@@ -63,7 +63,6 @@ const sendMail = async(email, id, wp, mc) =>{
                 be refunded on return of Graduation Robes) and Rs.300/- for Graduation Photo of the Individual in
                 the respective counters.
             </p>`+
-        `<p>${wp ? "We are very happy to see you and your parents/guests on the memorable and enjoyable day to celebrate GRADUATION CEREMONY." : ''}</p>`+
         '<p>Thank You!</p>'+
         '</div></body></html>'
   };
