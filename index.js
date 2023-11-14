@@ -110,7 +110,7 @@ app.get('/skct', function(req, res) {
 
 app.get('/skct/graduation/list', async (req, res) => {
   const countResult = await client.registrations.groupBy({
-    by: ['branch', 'batch', 'regno'],
+    by: ['branch'],
     _count: {
       branch: true,
     },
