@@ -140,7 +140,7 @@ app.get('/skct/graduation/list/:dept_name', async (req, res) => {
       deletedAt: null
     },
     orderBy:{
-      createdAt:'asc'
+      regno: 'asc'
     }
   });
   const willAttend = result.filter(val => val.will_participate);
