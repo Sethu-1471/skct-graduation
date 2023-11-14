@@ -55,16 +55,7 @@ const sendMail = async(email, id, wp, mc) =>{
                       All Graduands shall handover the Mobile Phones at the Registration Desk.
                     </li>
                     <li>
-                      Either father or mother / Guardian can accompany each Graduand.
-                    </li>
-                    <li>
                        No spot registration.
-                    </li>
-                    <li>
-                        Kids are strictly not allowed inside the hall.
-                    </li>
-                    <li>
-                        All the arrangements are made for graduates and 1 accompanying person.
                     </li>
                 </ol>
                 <p>
