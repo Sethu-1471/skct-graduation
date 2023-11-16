@@ -178,8 +178,11 @@ app.get('/skct/graduation/list/:dept_name', async (req, res) => {
 });
 });
 
-  app.get('/skct/register', function(req, res) {
-    res.render('register');
+  // app.get('/skct/register', function(req, res) {
+  //   res.render('register');
+  // });
+  app.get('/skct/*', function(req, res) {
+    res.render('404');
   });
 
 app.post("/skct/api/register", async(req, res) => {
