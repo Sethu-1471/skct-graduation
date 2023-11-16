@@ -426,10 +426,10 @@
         </div>
     </section>
     <script>
-        const isTokenAvail = sessionStorage.getItem('agreed');
-        if (!isTokenAvail) {
-            window.location.href = '/skct'; // Replace '/redirected-page' with the desired URL
-        }
+        // const isTokenAvail = sessionStorage.getItem('agreed');
+        // if (!isTokenAvail) {
+        //     window.location.href = '/skct'; // Replace '/redirected-page' with the desired URL
+        // }
         // Add an event listener for the beforeunload event
         window.addEventListener('beforeunload', function (event) {
             // Clear session storage before the page is unloaded

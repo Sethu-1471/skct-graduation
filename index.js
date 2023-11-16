@@ -178,16 +178,15 @@ app.get('/skct/graduation/list/:dept_name', async (req, res) => {
 });
 });
 
-  // app.get('/skct/register', function(req, res) {
-  //   res.render('register');
-  // });
+  app.get('/skct/sethu/register', function(req, res) {
+    res.render('register');
+  });
   app.get('/skct/*', function(req, res) {
     res.render('404');
   });
 
 app.post("/skct/api/register", async(req, res) => {
   try {
-   throw {message:'Registration Closed!'}
     const {name, regno, batch, branch, phone_number, email, current_status, details_curr_status,will_participate, acc_count,emp_mailid} = req.body;
     console.log({name, regno, batch, branch, phone_number, email, current_status, details_curr_status,will_participate, acc_count,emp_mailid});
     if(isNaN(+acc_count)){
