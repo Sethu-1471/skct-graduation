@@ -365,9 +365,9 @@
                     <p>------Registeration Closed------</p>
                 </center>
 
-                <!-- <div class="submit_btn" style="margin: 10px 0px;">
-                    <button class="signin">------Registeration Closed------</button>
-                </div> -->
+                <div class="submit_btn" style="margin: 10px 0px; visibility: hidden;">
+                    <button class="signin" id="redirectButton">------Registeration Closed------</button>
+                </div>
             </div>
 
         </div>
@@ -455,9 +455,10 @@
 
         // JavaScript function to handle button click and redirect
         document.getElementById('redirectButton').addEventListener('click', function () {
+            return;
             sessionStorage.setItem('agreed', true);
             // Redirect to the desired URL
-            window.location.href = '/skct/register'; // Replace '/redirected-page' with the desired URL
+            // window.location.href = '/skct/register'; // Replace '/redirected-page' with the desired URL
         });
 
     </script>
